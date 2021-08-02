@@ -1,0 +1,127 @@
+// game summ
+#include <iostream>
+#include <string>
+#include <ctime>
+
+using namespace std;
+int arr[4] = {0,0,0,0}; //масив ачивок
+
+void achiev(int prise) //выдаем ачивки если раньше не выдали
+{
+    
+    
+    
+    switch(prise)
+    {
+     case 5:
+     if (arr[0] != 1)
+     {
+         arr[0] =1;
+             cout <<endl<<endl<<"!!!ACHIEVEMENT 5 GRANTED!!!"<<endl<<endl;
+     }
+     
+     break;
+     case 10:
+     if (arr[1] != 1)
+       {
+         arr[1] =1;
+         cout <<endl<<"!!!ACHIEVEMENT 10 GRANTED!!!"<<endl;
+     }
+     
+     break;
+     
+     case 15:
+      if (arr[2] != 1)
+       {
+         arr[2] =1;
+         cout <<endl<<"!!!ACHIEVEMENT 15 GRANTED!!!"<<endl;
+     }
+     
+     case 50:
+      if (arr[3] != 1)
+       {
+         arr[3] =1;
+         cout <<endl<<"!!!ACHIEVEMENT 50 GRANTED!!!"<<endl;
+     }
+       
+     break;
+     
+     
+     
+     default:
+     break;
+        
+    }
+    
+}
+
+
+
+int main()
+{
+    
+    srand(time(NULL));                    //каждый раз рандом у нас идет исходя из времени
+    int d = 1; //сложность
+    int y = 1; //счетчик итераций
+    int w=0; //считаем серию
+    for (int i =0; i < 5; i++)              //основной цикл игры
+    {
+     
+     int a =rand()%(10*d);                     //первое число
+     int b=rand()%(10*d);                     //второе число
+     int c;                                   //инициализируем ответ пользователя
+     
+     
+     cout << "turn "<< y<<" summ of "<< a <<" + "<<b<<" = ";          //вывод условий пользователю
+     cin >> c;                                        //вводим результат сложения
+     
+    
+     
+     if(c == a + b)                       //если результат правильный
+     {
+         w++;                      //увеличиваем серию побед
+        cout <<endl<< "correct"<<" win row "<< w <<endl;
+      i--;                        //добавляем пользователю еще один цикл игры
+      
+     }
+     else                          //неверный ответ
+     {
+         cout <<endl <<"you can repeat "<< 4 - i <<" times"<<endl;
+         w=0;                      //обнуляем серию
+     }
+     
+        achiev(w);               //вызов функции проверки ачивки
+        y++;
+        switch(y)  //увеличиваем сложность
+    
+        {
+         case 5:
+         d =10;
+         break;
+         
+         case 10:
+         d =100;
+         break;
+         
+         case 20:
+         d =1000;
+         break;
+         
+         case 50:
+         d =10000;
+         break;
+         
+         case 75:
+         d =100000;
+         break;
+         
+         default:
+         break;
+        }
+    }
+ 
+  
+  cout <<endl<< "restart your game";    //если не осталось попыток
+  
+  
+}
