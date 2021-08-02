@@ -59,7 +59,7 @@ void achiev(int prise) //выдаем ачивки если раньше не в
 
 int main()
 {
-    
+      cout <<"GAME STARTED!!!, Insert summ values in a row to get achievements! you have 5 tries"<<endl<<"game dificult will inscrease over your turns"<<endl<<endl;
     srand(time(NULL));                    //каждый раз рандом у нас идет исходя из времени
     int d = 1; //сложность
     int y = 1; //счетчик итераций
